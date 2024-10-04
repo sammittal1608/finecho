@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
 class OptionsStrategyCard extends StatelessWidget {
-  const OptionsStrategyCard({Key? key}) : super(key: key);
+  final String title;
+  final String description;
+  final String imagePath;
+
+  const OptionsStrategyCard({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.imagePath,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0), // Adds margin around the card
-      padding: const EdgeInsets.all(10.0), // Adds padding inside the card
+      margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 8.0), // Adds margin around the card
+      padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 5.0), // Adjusted padding to reduce bottom space
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12), // Rounded corners
         gradient: LinearGradient(
@@ -36,7 +45,7 @@ class OptionsStrategyCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Options Strategy',
+                  title,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -44,24 +53,24 @@ class OptionsStrategyCard extends StatelessWidget {
                 ),
                 SizedBox(height: 8), // Spacing between title and description
                 Text(
-                  'An Advanced Tool of Readymade\nOption Strategies & Charting',
+                  description,
                   style: TextStyle(
                     fontSize: 10,
                     color: Colors.black87,
                   ),
                 ),
-                SizedBox(height: 16), // Spacing before the button
+                SizedBox(height: 8), // Reduced spacing before the button
                 ElevatedButton(
-                  onPressed: () {}, // Add functionality for the button
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent, // Matches the parent background
-                    elevation: 0, // Removes shadow from the button
-                    side: BorderSide(color: Colors.black, width: 1), // 1px black border
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    side: BorderSide(color: Colors.black, width: 1),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3), // 3px border radius
+                      borderRadius: BorderRadius.circular(3),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5), // Set vertical padding to 5px
-                    minimumSize: Size(0, 20), // Adjust minimum size if needed
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    minimumSize: Size(0, 20),
                   ),
                   child: Text(
                     'View More',
@@ -69,7 +78,6 @@ class OptionsStrategyCard extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: Color(0xFF16182C),
-                      // Text color of the button
                     ),
                   ),
                 ),
@@ -82,9 +90,8 @@ class OptionsStrategyCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerRight,
               child: Image.asset(
-                'assets/bull.png', // Replace with your bull image path
-                width: 154,
-                height: 102,
+                imagePath,
+
                 fit: BoxFit.contain,
               ),
             ),
